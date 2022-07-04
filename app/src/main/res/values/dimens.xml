@@ -1,0 +1,7 @@
+<!--Uygulama içerisinde bulunan boyutları buraya ekleyebilirsiniz ve buradan düzenleyebilirsiniz.-->
+
+<resources>
+    <dimen name="space_small">4dp</dimen>
+    <dimen name="space_medium">8dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+</resources>
