@@ -8,27 +8,28 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<VB : ViewBinding,VM : ViewModel>(
-    private val bindingInflater : (inflater : LayoutInflater) -> VB
-) : Fragment(){
+abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
+    private val bindingInflater: (inflater: LayoutInflater) -> VB,
+) : Fragment() {
 
-    //ViewBinding-Fragment bağlantısı
-    private var _binding : VB? = null
-    protected val binding : VB get() = _binding as VB
+    // ViewBinding-Fragment bağlantısı
+    private var _binding: VB? = null
+    protected val binding: VB get() = _binding as VB
 
-    //ViewModel bağlamak için zorunlu
-    protected abstract val viewModel : VM
-    //OnViewCreated scope için zorunlu
+    // ViewModel bağlamak için zorunlu
+    protected abstract val viewModel: VM
+
+    // OnViewCreated scope için zorunlu
     protected abstract fun initUi()
 
-    //Zorunlu degil ihtiyac varsa
-    open fun initReceivers(){}
-    open fun initOnCreateView(savedInstanceState: Bundle?){}
+    // Zorunlu degil ihtiyac varsa
+    open fun initReceivers() {}
+    open fun initOnCreateView(savedInstanceState: Bundle?) {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = bindingInflater.invoke(inflater)
         initOnCreateView(savedInstanceState)
