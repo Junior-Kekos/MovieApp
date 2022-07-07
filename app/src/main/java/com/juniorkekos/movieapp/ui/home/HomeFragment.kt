@@ -1,18 +1,22 @@
 package com.juniorkekos.movieapp.ui.home
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.juniorkekos.movieapp.R
 
-class HomeFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+import androidx.fragment.app.viewModels
+import com.juniorkekos.movieapp.databinding.FragmentHomeBinding
+import com.juniorkekos.movieapp.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class HomeFragment : BaseFragment<FragmentHomeBinding,HomeViewModel>(
+    FragmentHomeBinding::inflate
+){
+    //ViewModel-Fragment bağlantısı
+    override val viewModel by viewModels<HomeViewModel>()
+
+    //onViewCreated scope çalışacak kodlar burada olacak
+    override fun initUi() {
+        binding.textView.text = "Home Fragment "
     }
+
+
 }
