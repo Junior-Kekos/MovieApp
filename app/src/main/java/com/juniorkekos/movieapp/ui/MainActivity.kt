@@ -13,6 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
+    val variable = 0
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
